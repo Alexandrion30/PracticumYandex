@@ -82,8 +82,8 @@ const (
 // duration float64 — длительность тренировки в часах.
 func RunningSpentCalories(action int, weight, duration float64) float64 {
 	// ваш код здесь
-	speed := meanSpeed(action, duration)
-	return ((runningCaloriesMeanSpeedMultiplier * speed * runningCaloriesMeanSpeedShift) * weight / mInKm * duration * minInH)
+	CalcSpeed := meanSpeed(action, duration)
+	return ((runningCaloriesMeanSpeedMultiplier * CalcSpeed * runningCaloriesMeanSpeedShift) * weight / mInKm * duration * minInH)
 	//  ((18 * СредняяСкоростьВКм/ч * 1.79) * ВесСпортсменаВКг / mInKM * ВремяТренировкиВЧасах * minInH)
 }
 
@@ -138,8 +138,8 @@ func swimmingMeanSpeed(lengthPool, countPool int, duration float64) float64 {
 // weight float64 — вес пользователя.
 func SwimmingSpentCalories(lengthPool, countPool int, duration, weight float64) float64 {
 	// ваш код здесь
-	speed := swimmingMeanSpeed(lengthPool, countPool, duration)
-	return (speed + swimmingCaloriesMeanSpeedShift) * swimmingCaloriesWeightMultiplier * weight * duration
+	CalcSpeed := swimmingMeanSpeed(lengthPool, countPool, duration)
+	return (CalcSpeed + swimmingCaloriesMeanSpeedShift) * swimmingCaloriesWeightMultiplier * weight * duration
 	//(СредняяСкоростьВКм/ч + 1.1) * 2 * ВесСпортсменаВКг * ВремяТренеровкиВЧасах
 
 }
